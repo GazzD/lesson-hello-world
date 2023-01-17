@@ -19,7 +19,7 @@ public class Main {
 
         loops();
 
-        System.out.println("Holaa Mundo 2");
+        System.out.println("Adios Mundo 2");
 
     }
 
