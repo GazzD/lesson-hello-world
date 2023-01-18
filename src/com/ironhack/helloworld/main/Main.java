@@ -1,27 +1,121 @@
 package com.ironhack.helloworld.main;
 
+import com.ironhack.helloworld.classes.Calculator;
+import com.ironhack.helloworld.classes.Movie;
+import com.ironhack.helloworld.classes.Serie;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Hola Mundo :D");
-        System.out.println("Goodbye World :D");
+//        System.out.println("Goodbye World :D");
+//
+//        dataTypesAndOperators();
+//
+//        conditionals();
+//
+//        stringMethods();
+//
+//        String formattedProduct = productFormatter("    THIS IS AN AWESOME PRODUCT    ",
+//                " 2 de Mayo del 2023");
+//
+//        System.out.println(formattedProduct);
+//
+//        loops();
 
-        dataTypesAndOperators();
+//        scannerExample();
 
-        conditionals();
+//        fileWriterExample();
+        Movie oldBoy = new Movie("Old boy", 2003);
+        Movie movie = new Movie();
+        Movie killBill = new Movie("Kill Bill", 2004);
+        Movie harryP = new Movie("Harry Potter", 2008);
+        System.out.println(harryP.getName());
+        killBill.setDuration(500);
+        killBill.setName("Quill Vill");
 
-        stringMethods();
+        System.out.println(Math.pow(2, 2));
+        Serie lost = new Serie("Lost", 2002, 99);
 
-        String formattedProduct = productFormatter("    THIS IS AN AWESOME PRODUCT    ",
-                " 2 de Mayo del 2023");
+        oldBoy.play();
+        lost.play();
 
-        System.out.println(formattedProduct);
+//        Calculator suma  = new Calculator();
 
-        loops();
+        System.out.println(Math.E);
 
-        System.out.println("Adios Mundo 2");
 
+
+
+    }
+
+    private static void fileWriterExample() throws IOException {
+
+        FileWriter writer = new FileWriter("demo.txt", false);
+        for(int i=0; i< 10; i++) {
+            writer.write(i + "This a very important message!!!\n");
+            writer.write("This is another message\n");
+        }
+
+        writer.close();
+        File file = new File("demo.txt");
+        Scanner scanner = new Scanner(file);
+
+        while(scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            System.out.println(line);
+        }
+
+        scanner.close();
+    }
+
+    private static void scannerExample() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please introduce your name");
+        String name = scanner.nextLine();
+
+        System.out.println("Please introduce your age");
+        int age = scanner.nextInt();
+        while(age < 0) {
+            System.err.println("Age cannot be negative");
+            age = scanner.nextInt();
+        }
+
+        System.out.println("Welcome " + name + " your age is...." + age);
+
+        System.out.println("Adios Mundo");
+        scanner.close();
+    }
+
+    public static void scannerEx() {
+        Scanner scanner = new Scanner(System.in);
+        String line = scanner.nextLine();
+        int count = 0;
+        String[] words = line.split(" ");
+
+        System.out.println("Please introduce a phrase to be counted");
+
+        for(String word : words) {
+            if(word.startsWith("a")
+                    || word.startsWith("e")
+                    || word.startsWith("i")
+                    || word.startsWith("o")
+                    || word.startsWith("u")) {
+                count++;
+            } else {
+                System.err.println("Word skipped " + word);
+            }
+        }
+
+        System.out.println("Words: " + count);
+
+        scanner.close();
     }
 
     private static void dataTypesAndOperators() {
