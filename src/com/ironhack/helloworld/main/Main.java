@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hola World :D");
+        System.out.println("Hola Mundo :D");
+        System.out.println("Goodbye World :D");
 
         dataTypesAndOperators();
 
